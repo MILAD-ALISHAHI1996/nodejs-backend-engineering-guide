@@ -1,94 +1,137 @@
-# Understanding Classes in TypeScript
+# 🏗 Understanding Classes in TypeScript
 
-## Why Do We Need Classes?
+> Learn why classes exist, when to use them, and how they help build maintainable backend applications.
 
-Imagine you are building an e-commerce application.
+---
 
-You need to represent products:
+## 🎯 The Problem
+
+Imagine you're building an inventory management system.
+
+Each product needs:
+
+* Name
+* Price
+* Quantity
+
+A beginner might write:
 
 ```ts
 const product1 = {
-  title: "Laptop",
-  price: 1500
+  name: "Laptop",
+  price: 1500,
+  quantity: 10,
 };
 
 const product2 = {
-  title: "Phone",
-  price: 800
+  name: "Phone",
+  price: 800,
+  quantity: 20,
 };
 
 const product3 = {
-  title: "Monitor",
-  price: 400
+  name: "Monitor",
+  price: 400,
+  quantity: 15,
 };
 ```
 
-This works at first.
+Everything looks fine.
 
-However, as the application grows, you'll need:
+Until your application starts growing.
+
+Now you need:
 
 * Validation
-* Business logic
-* Methods
-* Reusable structures
+* Business Logic
+* Reusable Functions
+* Consistent Structure
 
-Managing everything with plain objects becomes difficult.
-
-Classes help us organize data and behavior together.
+Things quickly become messy.
 
 ---
 
-## What Is a Class?
+## ❌ The Wrong Approach
 
-A class is a template for creating similar objects.
-
-Think of a class as a blueprint.
-
-Think of an object as a real building created from that blueprint.
+As the project grows, every object starts duplicating logic.
 
 ```ts
-class Product {
-}
+const product1 = {
+  name: "Laptop",
+  price: 1500,
+  quantity: 10,
+  getTotalValue() {
+    return this.price * this.quantity;
+  },
+};
+
+const product2 = {
+  name: "Phone",
+  price: 800,
+  quantity: 20,
+  getTotalValue() {
+    return this.price * this.quantity;
+  },
+};
 ```
 
-At this point, the class doesn't do anything yet.
+Problems:
 
-Let's add some data.
+* Repeated code
+* Hard to maintain
+* Easy to introduce bugs
+* No centralized structure
 
 ---
 
-## Adding Properties
+## 💡 The Solution: Classes
 
-Properties are variables that belong to an object.
+A class acts as a blueprint.
+
+Instead of defining the same structure repeatedly, we define it once.
+
+```ts
+class Product {}
+```
+
+Then create as many objects as we want.
+
+---
+
+## 🛠 Creating Your First Class
 
 ```ts
 class Product {
-  title: string;
+  name: string;
   price: number;
+  quantity: number;
 }
 ```
 
-Now every Product should have:
+At this point we've only defined the structure.
 
-* title
-* price
-
-But how do we assign values?
+We still need a way to assign values.
 
 ---
 
-## Constructors
+## 🏗 Constructors
 
 A constructor runs automatically when a new object is created.
 
 ```ts
 class Product {
-  title: string;
+  name: string;
   price: number;
+  quantity: number;
 
-  constructor(title: string, price: number) {
-    this.title = title;
+  constructor(
+    name: string,
+    price: number,
+    quantity: number
+  ) {
+    this.name = name;
     this.price = price;
+    this.quantity = quantity;
   }
 }
 ```
@@ -96,74 +139,109 @@ class Product {
 Creating objects:
 
 ```ts
-const laptop = new Product("Laptop", 1500);
-const phone = new Product("Phone", 800);
-```
+const laptop = new Product(
+  "Laptop",
+  1500,
+  10
+);
 
-Result:
-
-```txt
-Product
-├── title = Laptop
-└── price = 1500
-
-Product
-├── title = Phone
-└── price = 800
+const phone = new Product(
+  "Phone",
+  800,
+  20
+);
 ```
 
 ---
 
-## What Does "this" Mean?
+## 🤔 What Does `this` Mean?
 
-Many beginners struggle with this keyword.
+Many beginners struggle with `this`.
 
 Inside a class:
 
 ```ts
-this.title
+this.name
 ```
 
 means:
 
-> "the title property of the current object"
+> The `name` property belonging to the current object.
 
 Example:
 
 ```ts
-const laptop = new Product("Laptop", 1500);
+const laptop = new Product(
+  "Laptop",
+  1500,
+  10
+);
 ```
 
-Here:
+For this object:
 
 ```ts
-this.title
+this.name
 ```
 
 becomes:
 
 ```ts
-laptop.title
+laptop.name
 ```
 
 ---
 
-## Adding Methods
+## ⚡ Constructor Shortcut
+
+TypeScript provides a shorter syntax.
+
+Instead of:
+
+```ts
+class Product {
+  name: string;
+  price: number;
+
+  constructor(
+    name: string,
+    price: number
+  ) {
+    this.name = name;
+    this.price = price;
+  }
+}
+```
+
+You can write:
+
+```ts
+class Product {
+  constructor(
+    public name: string,
+    public price: number
+  ) {}
+}
+```
+
+Both produce the same result.
+
+---
+
+## 🛠 Adding Methods
 
 Classes can contain behavior.
 
 ```ts
 class Product {
-  title: string;
-  price: number;
+  constructor(
+    public name: string,
+    public price: number,
+    public quantity: number
+  ) {}
 
-  constructor(title: string, price: number) {
-    this.title = title;
-    this.price = price;
-  }
-
-  displayInfo() {
-    console.log(`${this.title} - $${this.price}`);
+  getTotalValue() {
+    return this.price * this.quantity;
   }
 }
 ```
@@ -171,22 +249,122 @@ class Product {
 Usage:
 
 ```ts
-const laptop = new Product("Laptop", 1500);
+const laptop = new Product(
+  "Laptop",
+  1500,
+  10
+);
 
-laptop.displayInfo();
+console.log(
+  laptop.getTotalValue()
+);
 ```
 
 Output:
 
 ```txt
-Laptop - $1500
+15000
 ```
 
 ---
 
-## Real Backend Example
+## 🔒 Access Modifiers
 
-Suppose we are building an invoice system.
+TypeScript allows controlling access to properties.
+
+### Public
+
+Accessible everywhere.
+
+```ts
+public name: string;
+```
+
+### Private
+
+Accessible only inside the class.
+
+```ts
+private password: string;
+```
+
+### Protected
+
+Accessible inside the class and subclasses.
+
+```ts
+protected salary: number;
+```
+
+Example:
+
+```ts
+class User {
+  private password: string;
+
+  constructor(password: string) {
+    this.password = password;
+  }
+}
+```
+
+This prevents direct access:
+
+```ts
+const user = new User("123");
+
+console.log(user.password);
+```
+
+Result:
+
+```txt
+Error
+```
+
+---
+
+## 🧬 Inheritance
+
+Classes can inherit from other classes.
+
+```ts
+class Animal {
+  move() {
+    console.log("Moving...");
+  }
+}
+```
+
+```ts
+class Dog extends Animal {
+  bark() {
+    console.log("Woof!");
+  }
+}
+```
+
+Usage:
+
+```ts
+const dog = new Dog();
+
+dog.move();
+dog.bark();
+```
+
+Output:
+
+```txt
+Moving...
+Woof!
+```
+
+---
+
+## 🏢 Real Backend Example
+
+Suppose we're building an invoice system.
 
 ```ts
 class InvoiceItem {
@@ -196,7 +374,7 @@ class InvoiceItem {
     public unitPrice: number
   ) {}
 
-  getTotalPrice() {
+  calculateTotal() {
     return this.quantity * this.unitPrice;
   }
 }
@@ -211,7 +389,9 @@ const item = new InvoiceItem(
   500
 );
 
-console.log(item.getTotalPrice());
+console.log(
+  item.calculateTotal()
+);
 ```
 
 Output:
@@ -220,59 +400,133 @@ Output:
 5000
 ```
 
-This is much closer to real backend applications.
+This is much closer to how classes are used in real backend projects.
 
 ---
 
-## Common Beginner Mistakes
+## 📦 Where Are Classes Used in Backend Development?
 
-### Forgetting "new"
+Classes are commonly used for:
 
-Wrong:
-
-```ts
-const product = Product("Laptop", 1000);
+```txt
+Controller
+    ↓
+Service
+    ↓
+Repository
+    ↓
+Database
 ```
 
-Correct:
+Examples:
 
-```ts
-const product = new Product("Laptop", 1000);
-```
-
----
-
-### Forgetting "this"
-
-Wrong:
-
-```ts
-title = title;
-```
-
-Correct:
-
-```ts
-this.title = title;
-```
-
----
-
-## Summary
-
-Classes allow us to:
-
-* Group data together
-* Add behavior through methods
-* Reuse code
-* Build maintainable applications
-
-In backend development, classes are commonly used for:
-
+* Controllers
 * Services
 * Repositories
 * Entities
-* Controllers
+* DTOs
 * Use Cases
 
-Understanding classes is an important step before learning NestJS, Clean Architecture, and Design Patterns.
+Frameworks like NestJS heavily rely on classes.
+
+---
+
+## ⚠ Common Mistakes
+
+### Forgetting `new`
+
+Wrong:
+
+```ts
+const product = Product(
+  "Laptop",
+  1500
+);
+```
+
+Correct:
+
+```ts
+const product = new Product(
+  "Laptop",
+  1500
+);
+```
+
+---
+
+### Forgetting `this`
+
+Wrong:
+
+```ts
+name = name;
+```
+
+Correct:
+
+```ts
+this.name = name;
+```
+
+---
+
+### Making Everything Public
+
+Bad:
+
+```ts
+public password: string;
+```
+
+Better:
+
+```ts
+private password: string;
+```
+
+---
+
+## 🎤 Interview Questions
+
+### What is a class?
+
+A blueprint used to create objects.
+
+### What is the purpose of a constructor?
+
+To initialize object data during creation.
+
+### Difference between class and interface?
+
+A class provides implementation.
+An interface only defines structure.
+
+### What is inheritance?
+
+The ability for one class to reuse another class's behavior.
+
+### What are access modifiers?
+
+Keywords that control property visibility.
+
+---
+
+## 📌 Key Takeaways
+
+* Classes combine data and behavior.
+* Constructors initialize objects.
+* Methods define functionality.
+* Access modifiers improve encapsulation.
+* Inheritance enables code reuse.
+* Classes are heavily used in NestJS and backend architecture.
+
+---
+
+## 🚀 What's Next?
+
+After understanding classes, the next recommended topic is:
+
+**Interfaces in TypeScript**
+
+Because classes define implementation, while interfaces define contracts.
