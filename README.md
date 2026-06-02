@@ -34,20 +34,22 @@ Topics include:
 
 ## 📚 Learning Paths
 
-| Path                              | Description                                     |
-| --------------------------------- | ----------------------------------------------- |
-| 🟨 JavaScript Fundamentals        | Core language concepts for backend development  |
-| 🟦 TypeScript Backend             | Type-safe backend applications                  |
-| 🟩 Node.js Core                   | Runtime, Event Loop, Streams, Buffers           |
-| 🟪 Express.js                     | REST APIs and middleware architecture           |
-| 🟥 Authentication & Authorization | JWT, RBAC, Refresh Tokens                       |
-| 🟫 SQL Databases                  | SQL Server, PostgreSQL, Transactions            |
-| ⬛ MongoDB                         | Collections, Aggregation, Indexing              |
-| 🟧 Clean Architecture             | Entities, Use Cases, Repositories               |
-| 🔬 Testing                        | Unit, Integration, E2E Testing                  |
-| 🐳 Docker & DevOps                | Containers, CI/CD, Deployment                   |
-| 🏗 System Design                  | Scalable backend architectures                  |
-| 💼 Case Studies                   | Real-world backend projects and lessons learned |
+| Path                              | Description                                      |
+| --------------------------------- | ------------------------------------------------ |
+| 🟨 JavaScript Fundamentals        | Core language concepts for backend development   |
+| 🟦 TypeScript Backend             | Type-safe backend applications                   |
+| 🟩 Node.js Core                   | Runtime, Event Loop, Streams, Buffers            |
+| 🟪 Express.js                     | REST APIs and middleware architecture            |
+| 🔷 NestJS Framework               | Enterprise-grade backend development with NestJS |
+| 🟥 Authentication & Authorization | JWT, RBAC, Refresh Tokens                        |
+| 🟫 SQL Databases                  | SQL Server, PostgreSQL, Transactions             |
+| ⬛ MongoDB                         | Collections, Aggregation, Indexing               |
+| 🟧 Clean Architecture             | Entities, Use Cases, Repositories                |
+| 🔬 Testing                        | Unit, Integration, E2E Testing                   |
+| 🐳 Docker & DevOps                | Containers, CI/CD, Deployment                    |
+| 🏗 System Design                  | Scalable backend architectures                   |
+| 💼 Case Studies                   | Real-world backend projects and lessons learned  |
+
 
 ---
 
