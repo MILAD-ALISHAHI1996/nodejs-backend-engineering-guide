@@ -14,7 +14,7 @@ It is a long-term knowledge base documenting how modern backend systems are desi
 
 | Article                                                                              | Problem                                         | Key Concepts                           |
 | ------------------------------------------------------------------------------------ | ----------------------------------------------- | -------------------------------------- |
-| 04-typescript-backend/understanding-classes-in-typescript.md | Learn object-oriented programming in TypeScript | Classes, Constructor, Access Modifiers |
+|[Understanding Interfaces in TypeScript](./understanding-interfaces-in-typescript.md)| Learn object-oriented programming in TypeScript | Classes, Constructor, Access Modifiers |
 | Coming Soon                                                                          | -                                               | -                                      |
 | Coming Soon                                                                          | -                                               | -                                      |
 | Coming Soon                                                                          | -                                               | -                                      |
