@@ -1,243 +1,278 @@
 # Understanding Classes in TypeScript
 
-## Introduction
+## Why Do We Need Classes?
 
-Classes are one of the core features of TypeScript and provide a clean way to create reusable, maintainable, and object-oriented code.
+Imagine you are building an e-commerce application.
 
-In backend applications, classes are commonly used for:
+You need to represent products:
 
-* Entities
-* Services
-* Repositories
-* Controllers
-* Use Cases
-* DTO Mapping
+```ts
+const product1 = {
+  title: "Laptop",
+  price: 1500
+};
 
-Understanding classes is essential before learning frameworks such as NestJS or implementing Clean Architecture.
+const product2 = {
+  title: "Phone",
+  price: 800
+};
+
+const product3 = {
+  title: "Monitor",
+  price: 400
+};
+```
+
+This works at first.
+
+However, as the application grows, you'll need:
+
+* Validation
+* Business logic
+* Methods
+* Reusable structures
+
+Managing everything with plain objects becomes difficult.
+
+Classes help us organize data and behavior together.
 
 ---
 
-## What is a Class?
+## What Is a Class?
 
-A class is a blueprint used to create objects.
+A class is a template for creating similar objects.
+
+Think of a class as a blueprint.
+
+Think of an object as a real building created from that blueprint.
+
+```ts
+class Product {
+}
+```
+
+At this point, the class doesn't do anything yet.
+
+Let's add some data.
+
+---
+
+## Adding Properties
+
+Properties are variables that belong to an object.
+
+```ts
+class Product {
+  title: string;
+  price: number;
+}
+```
+
+Now every Product should have:
+
+* title
+* price
+
+But how do we assign values?
+
+---
+
+## Constructors
+
+A constructor runs automatically when a new object is created.
+
+```ts
+class Product {
+  title: string;
+  price: number;
+
+  constructor(title: string, price: number) {
+    this.title = title;
+    this.price = price;
+  }
+}
+```
+
+Creating objects:
+
+```ts
+const laptop = new Product("Laptop", 1500);
+const phone = new Product("Phone", 800);
+```
+
+Result:
+
+```txt
+Product
+├── title = Laptop
+└── price = 1500
+
+Product
+├── title = Phone
+└── price = 800
+```
+
+---
+
+## What Does "this" Mean?
+
+Many beginners struggle with this keyword.
+
+Inside a class:
+
+```ts
+this.title
+```
+
+means:
+
+> "the title property of the current object"
 
 Example:
 
 ```ts
-class User {
-  name: string;
+const laptop = new Product("Laptop", 1500);
+```
 
-  constructor(name: string) {
-    this.name = name;
+Here:
+
+```ts
+this.title
+```
+
+becomes:
+
+```ts
+laptop.title
+```
+
+---
+
+## Adding Methods
+
+Classes can contain behavior.
+
+```ts
+class Product {
+  title: string;
+  price: number;
+
+  constructor(title: string, price: number) {
+    this.title = title;
+    this.price = price;
+  }
+
+  displayInfo() {
+    console.log(`${this.title} - $${this.price}`);
   }
 }
+```
 
-const user = new User("Milad");
+Usage:
 
-console.log(user.name);
+```ts
+const laptop = new Product("Laptop", 1500);
+
+laptop.displayInfo();
 ```
 
 Output:
 
 ```txt
-Milad
+Laptop - $1500
 ```
-
----
-
-## Properties
-
-Properties store data inside an object.
-
-```ts
-class Product {
-  title: string;
-  price: number;
-
-  constructor(title: string, price: number) {
-    this.title = title;
-    this.price = price;
-  }
-}
-```
-
----
-
-## Methods
-
-Methods define behavior.
-
-```ts
-class Product {
-  title: string;
-  price: number;
-
-  constructor(title: string, price: number) {
-    this.title = title;
-    this.price = price;
-  }
-
-  getPrice() {
-    return this.price;
-  }
-}
-```
-
----
-
-## Access Modifiers
-
-TypeScript supports three access levels:
-
-### Public
-
-Accessible everywhere.
-
-```ts
-public name: string;
-```
-
-### Private
-
-Accessible only inside the class.
-
-```ts
-private password: string;
-```
-
-### Protected
-
-Accessible inside the class and subclasses.
-
-```ts
-protected salary: number;
-```
-
----
-
-## Constructor Shortcut
-
-```ts
-class User {
-  constructor(
-    public name: string,
-    public age: number
-  ) {}
-}
-```
-
-Instead of:
-
-```ts
-class User {
-  name: string;
-  age: number;
-
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
-}
-```
-
----
-
-## Inheritance
-
-```ts
-class Animal {
-  move() {
-    console.log("Moving...");
-  }
-}
-
-class Dog extends Animal {
-  bark() {
-    console.log("Woof!");
-  }
-}
-```
-
----
-
-## Abstract Classes
-
-Useful for backend architecture.
-
-```ts
-abstract class Repository {
-  abstract findById(id: number): Promise<any>;
-}
-```
-
----
-
-## Interfaces vs Classes
-
-| Feature         | Interface | Class |
-| --------------- | --------- | ----- |
-| Type Definition | ✅         | ✅     |
-| Implementation  | ❌         | ✅     |
-| Constructor     | ❌         | ✅     |
-| Inheritance     | Limited   | Full  |
 
 ---
 
 ## Real Backend Example
 
-Service Layer:
+Suppose we are building an invoice system.
 
 ```ts
-class UserService {
-  async findUser(id: number) {
-    return { id };
+class InvoiceItem {
+  constructor(
+    public productName: string,
+    public quantity: number,
+    public unitPrice: number
+  ) {}
+
+  getTotalPrice() {
+    return this.quantity * this.unitPrice;
   }
 }
 ```
 
-Repository Layer:
+Usage:
 
 ```ts
-class UserRepository {
-  async findById(id: number) {
-    return db.users.find(id);
-  }
-}
+const item = new InvoiceItem(
+  "Steel Beam",
+  10,
+  500
+);
+
+console.log(item.getTotalPrice());
 ```
 
-Controller Layer:
+Output:
+
+```txt
+5000
+```
+
+This is much closer to real backend applications.
+
+---
+
+## Common Beginner Mistakes
+
+### Forgetting "new"
+
+Wrong:
 
 ```ts
-class UserController {
-  constructor(private userService: UserService) {}
+const product = Product("Laptop", 1000);
+```
 
-  async getUser(id: number) {
-    return this.userService.findUser(id);
-  }
-}
+Correct:
+
+```ts
+const product = new Product("Laptop", 1000);
 ```
 
 ---
 
-## Common Mistakes
+### Forgetting "this"
 
-* Overusing classes for simple data structures
-* Exposing sensitive fields as public
-* Mixing business logic and database logic
-* Forgetting to use interfaces with classes
+Wrong:
 
----
+```ts
+title = title;
+```
 
-## Interview Questions
+Correct:
 
-1. What is the difference between a class and an interface?
-2. What are access modifiers?
-3. What is inheritance?
-4. What is an abstract class?
-5. When should you use composition instead of inheritance?
+```ts
+this.title = title;
+```
 
 ---
 
 ## Summary
 
-Classes are the foundation of object-oriented programming in TypeScript and are widely used in backend applications for services, repositories, entities, controllers, and clean architecture patterns.
+Classes allow us to:
+
+* Group data together
+* Add behavior through methods
+* Reuse code
+* Build maintainable applications
+
+In backend development, classes are commonly used for:
+
+* Services
+* Repositories
+* Entities
+* Controllers
+* Use Cases
+
+Understanding classes is an important step before learning NestJS, Clean Architecture, and Design Patterns.
