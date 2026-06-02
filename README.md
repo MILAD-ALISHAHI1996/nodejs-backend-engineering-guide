@@ -10,73 +10,115 @@ It is a long-term knowledge base documenting how modern backend systems are desi
 
 ---
 
-## 🎯 Purpose
+## ⭐ Featured Articles
 
-The goal of this repository is to document everything I learn, build, debug, improve, and discover while working on real backend projects.
-
-Topics include:
-
-* JavaScript & TypeScript
-* Node.js Internals
-* Express.js
-* Authentication & Authorization
-* SQL & NoSQL Databases
-* Clean Architecture
-* Design Patterns
-* Testing Strategies
-* API Design
-* Docker & DevOps
-* System Design
-* Performance Optimization
-* Real-World Case Studies
+| Article                                                                              | Problem                                         | Key Concepts                           |
+| ------------------------------------------------------------------------------------ | ----------------------------------------------- | -------------------------------------- |
+| [Understanding Classes in TypeScript](./04-typescript-backend/typescript-classes.md) | Learn object-oriented programming in TypeScript | Classes, Constructor, Access Modifiers |
+| Coming Soon                                                                          | -                                               | -                                      |
+| Coming Soon                                                                          | -                                               | -                                      |
+| Coming Soon                                                                          | -                                               | -                                      |
+| Coming Soon                                                                          | -                                               | -                                      |
 
 ---
 
 ## 📚 Learning Paths
 
-| Path                              | Description                                      |
-| --------------------------------- | ------------------------------------------------ |
-| 🟨 JavaScript Fundamentals        | Core language concepts for backend development   |
-| 🟦 TypeScript Backend             | Type-safe backend applications                   |
-| 🟩 Node.js Core                   | Runtime, Event Loop, Streams, Buffers            |
-| 🟪 Express.js                     | REST APIs and middleware architecture            |
-| 🔷 NestJS Framework               | Enterprise-grade backend development with NestJS |
-| 🟥 Authentication & Authorization | JWT, RBAC, Refresh Tokens                        |
-| 🟫 SQL Databases                  | SQL Server, PostgreSQL, Transactions             |
-| ⬛ MongoDB                         | Collections, Aggregation, Indexing               |
-| 🟧 Clean Architecture             | Entities, Use Cases, Repositories                |
-| 🔬 Testing                        | Unit, Integration, E2E Testing                   |
-| 🐳 Docker & DevOps                | Containers, CI/CD, Deployment                    |
-| 🏗 System Design                  | Scalable backend architectures                   |
-| 💼 Case Studies                   | Real-world backend projects and lessons learned  |
+| Path                              | Description                                    |
+| --------------------------------- | ---------------------------------------------- |
+| 🟨 JavaScript Fundamentals        | Core language concepts for backend development |
+| 🟦 TypeScript Backend             | Type-safe backend applications                 |
+| 🟩 Node.js Core                   | Runtime, Event Loop, Streams, Buffers          |
+| 🟪 Express.js                     | REST APIs and middleware architecture          |
+| 🔷 NestJS Framework               | Enterprise-grade backend development           |
+| 🟥 Authentication & Authorization | JWT, RBAC, Refresh Tokens                      |
+| 🟫 SQL Databases                  | SQL Server, PostgreSQL, Transactions           |
+| ⬛ MongoDB                         | Collections, Aggregation, Indexing             |
+| 🟧 Clean Architecture             | Entities, Use Cases, Repositories              |
+| 🔬 Testing                        | Unit, Integration, E2E Testing                 |
+| 🐳 Docker & DevOps                | Containers, CI/CD, Deployment                  |
+| 🏗 System Design                  | Scalable backend architectures                 |
+| 💼 Real-World Case Studies        | Production projects and lessons learned        |
 
+---
+
+## 💼 Real-World Case Studies
+
+| Case Study  | Problem | Technologies |
+| ----------- | ------- | ------------ |
+| Coming Soon | -       | -            |
+| Coming Soon | -       | -            |
+| Coming Soon | -       | -            |
+| Coming Soon | -       | -            |
 
 ---
 
 ## ✨ What You'll Find Here
 
-* Practical examples
-* Production-ready solutions
-* Architecture discussions
-* Common mistakes and pitfalls
-* Interview preparation notes
-* Real project experiences
-* Engineering best practices
-* Design decisions and trade-offs
+* 📖 Practical tutorials
+* 🏗 Real-world architecture patterns
+* 💡 Production-ready solutions
+* ⚠️ Common mistakes and pitfalls
+* 🎯 Interview preparation notes
+* 🔥 Engineering best practices
+* 🧪 Testing strategies
+* 🐳 Docker and deployment guides
+* 🔒 Security best practices
+* 📈 Scalability and performance optimization
+* 🏢 Enterprise application architecture
 
 ---
 
-## 💼 Real-World Experience
+## 🛠 Technologies Covered
 
-Many articles in this repository are based on actual production projects involving:
+### Languages
 
-* ERP Integrations
-* Inventory Management Systems
-* Invoice & Accounting Systems
-* Real-Time Messaging Platforms
-* Contract Approval Workflows
-* Role-Based Access Control Systems
-* Manufacturing & Production Management Software
+* JavaScript
+* TypeScript
+
+### Backend Frameworks
+
+* Node.js
+* Express.js
+* NestJS
+
+### Databases
+
+* SQL Server
+* PostgreSQL
+* MongoDB
+* Redis
+
+### Architecture
+
+* Clean Architecture
+* Domain-Driven Design (DDD)
+* Repository Pattern
+* CQRS
+* Dependency Injection
+
+### DevOps
+
+* Docker
+* Docker Compose
+* Nginx
+* Linux
+* CI/CD
+
+### Testing
+
+* Jest
+* Unit Testing
+* Integration Testing
+* End-to-End Testing
+
+---
+
+## 🎯 Purpose
+
+The goal of this repository is to document everything I learn, build, debug, improve, and discover while working on real backend projects.
+
+Rather than focusing only on theory, this repository emphasizes practical engineering experience, production challenges, architectural trade-offs, and lessons learned from building real systems.
 
 ---
 
@@ -86,4 +128,20 @@ This repository is continuously updated as I learn new concepts, solve new probl
 
 The objective is simple:
 
-**Build a complete backend engineering knowledge base from experience, not theory alone.**
+> Build a complete backend engineering knowledge base from experience, not theory alone.
+
+---
+
+## 🤝 Contributions
+
+Suggestions, corrections, and discussions are always welcome.
+
+If you find an issue or have an idea for improvement, feel free to open an issue or submit a pull request.
+
+---
+
+## ⭐ Support
+
+If you find this repository useful, consider giving it a star.
+
+It helps others discover the project and motivates future content creation.
