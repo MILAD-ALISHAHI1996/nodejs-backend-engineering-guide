@@ -1,0 +1,243 @@
+# Understanding Classes in TypeScript
+
+## Introduction
+
+Classes are one of the core features of TypeScript and provide a clean way to create reusable, maintainable, and object-oriented code.
+
+In backend applications, classes are commonly used for:
+
+* Entities
+* Services
+* Repositories
+* Controllers
+* Use Cases
+* DTO Mapping
+
+Understanding classes is essential before learning frameworks such as NestJS or implementing Clean Architecture.
+
+---
+
+## What is a Class?
+
+A class is a blueprint used to create objects.
+
+Example:
+
+```ts
+class User {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+const user = new User("Milad");
+
+console.log(user.name);
+```
+
+Output:
+
+```txt
+Milad
+```
+
+---
+
+## Properties
+
+Properties store data inside an object.
+
+```ts
+class Product {
+  title: string;
+  price: number;
+
+  constructor(title: string, price: number) {
+    this.title = title;
+    this.price = price;
+  }
+}
+```
+
+---
+
+## Methods
+
+Methods define behavior.
+
+```ts
+class Product {
+  title: string;
+  price: number;
+
+  constructor(title: string, price: number) {
+    this.title = title;
+    this.price = price;
+  }
+
+  getPrice() {
+    return this.price;
+  }
+}
+```
+
+---
+
+## Access Modifiers
+
+TypeScript supports three access levels:
+
+### Public
+
+Accessible everywhere.
+
+```ts
+public name: string;
+```
+
+### Private
+
+Accessible only inside the class.
+
+```ts
+private password: string;
+```
+
+### Protected
+
+Accessible inside the class and subclasses.
+
+```ts
+protected salary: number;
+```
+
+---
+
+## Constructor Shortcut
+
+```ts
+class User {
+  constructor(
+    public name: string,
+    public age: number
+  ) {}
+}
+```
+
+Instead of:
+
+```ts
+class User {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+```
+
+---
+
+## Inheritance
+
+```ts
+class Animal {
+  move() {
+    console.log("Moving...");
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    console.log("Woof!");
+  }
+}
+```
+
+---
+
+## Abstract Classes
+
+Useful for backend architecture.
+
+```ts
+abstract class Repository {
+  abstract findById(id: number): Promise<any>;
+}
+```
+
+---
+
+## Interfaces vs Classes
+
+| Feature         | Interface | Class |
+| --------------- | --------- | ----- |
+| Type Definition | ✅         | ✅     |
+| Implementation  | ❌         | ✅     |
+| Constructor     | ❌         | ✅     |
+| Inheritance     | Limited   | Full  |
+
+---
+
+## Real Backend Example
+
+Service Layer:
+
+```ts
+class UserService {
+  async findUser(id: number) {
+    return { id };
+  }
+}
+```
+
+Repository Layer:
+
+```ts
+class UserRepository {
+  async findById(id: number) {
+    return db.users.find(id);
+  }
+}
+```
+
+Controller Layer:
+
+```ts
+class UserController {
+  constructor(private userService: UserService) {}
+
+  async getUser(id: number) {
+    return this.userService.findUser(id);
+  }
+}
+```
+
+---
+
+## Common Mistakes
+
+* Overusing classes for simple data structures
+* Exposing sensitive fields as public
+* Mixing business logic and database logic
+* Forgetting to use interfaces with classes
+
+---
+
+## Interview Questions
+
+1. What is the difference between a class and an interface?
+2. What are access modifiers?
+3. What is inheritance?
+4. What is an abstract class?
+5. When should you use composition instead of inheritance?
+
+---
+
+## Summary
+
+Classes are the foundation of object-oriented programming in TypeScript and are widely used in backend applications for services, repositories, entities, controllers, and clean architecture patterns.
