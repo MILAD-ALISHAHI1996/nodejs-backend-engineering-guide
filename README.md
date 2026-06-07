@@ -12,13 +12,13 @@ It is a long-term knowledge base documenting how modern backend systems are desi
 
 ## ⭐ Featured Articles
 
-| Article                                                                              | Problem                                         | Key Concepts                           |
-| ------------------------------------------------------------------------------------ | ----------------------------------------------- | -------------------------------------- |
-|[Understanding Classes in TypeScript](./04-typescript-backend/understanding-classes-in-typescript.md)| Learn object-oriented programming in TypeScript | Classes, Constructor, Access Modifiers |
-| Coming Soon                                                                          | -                                               | -                                      |
-| Coming Soon                                                                          | -                                               | -                                      |
-| Coming Soon                                                                          | -                                               | -                                      |
-| Coming Soon                                                                          | -                                               | -                                      |
+| Article                                                                                                                          | Problem                                                 | Key Concepts                                            |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| [Understanding Classes in TypeScript](./04-typescript-backend/understanding-classes-in-typescript.md)                            | Learn object-oriented programming in TypeScript         | Classes, Constructor, Access Modifiers                  |
+| [Designing a Dynamic Page CMS for SEO-Driven Websites](./13-real-world-case-studies/dynamic-page-cms-for-seo-driven-websites.md) | Build flexible SEO pages without hardcoding every route | CMS, Dynamic Pages, SEO, Admin Dashboard, System Design |
+| Coming Soon                                                                                                                      | -                                                       | -                                                       |
+| Coming Soon                                                                                                                      | -                                                       | -                                                       |
+| Coming Soon                                                                                                                      | -                                                       | -                                                       |
 
 ---
 
@@ -44,12 +44,12 @@ It is a long-term knowledge base documenting how modern backend systems are desi
 
 ## 💼 Real-World Case Studies
 
-| Case Study  | Problem | Technologies |
-| ----------- | ------- | ------------ |
-| Coming Soon | -       | -            |
-| Coming Soon | -       | -            |
-| Coming Soon | -       | -            |
-| Coming Soon | -       | -            |
+| Case Study                                                                                                           | Problem                                                                                                                          | Technologies                                                        |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [Dynamic Page CMS for SEO-Driven Websites](./13-real-world-case-studies/dynamic-page-cms-for-seo-driven-websites.md) | Creating SEO pages, landing pages, and campaign pages required developers, repeated frontend code, new routes, and redeployment. | Node.js, Express.js, MongoDB, Next.js, React, CMS Architecture, SEO |
+| Admin Dashboard for Business Operations                                                                              | Business teams need centralized panels to manage operational data, workflows, forms, and internal processes.                     | Next.js, React, MUI, REST API, Role-Based Access                    |
+| Invoice and Pre-Invoice Management System                                                                            | Manual invoice workflows can cause duplicate submissions, inconsistent statuses, and difficult accounting integration.           | Node.js, SQL Server, Sequelize, REST API, Accounting Integration    |
+| Real-Time Chat System                                                                                                | Users need instant messaging, seen status, reconnection handling, and real-time updates across clients.                          | React Native, Expo, SignalR, Zustand, TypeScript                    |
 
 ---
 
@@ -92,7 +92,7 @@ It is a long-term knowledge base documenting how modern backend systems are desi
 ### Architecture
 
 * Clean Architecture
-* Domain-Driven Design (DDD)
+* Domain-Driven Design `DDD`
 * Repository Pattern
 * CQRS
 * Dependency Injection
