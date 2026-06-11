@@ -9,16 +9,15 @@ This repository is not just another tutorial collection.
 It is a long-term knowledge base documenting how modern backend systems are designed, built, maintained, scaled, and deployed in production environments.
 
 ---
-
 ## ⭐ Featured Articles
 
-| Article                                                                                                                          | Problem                                                 | Key Concepts                                            |
-| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| [Understanding Classes in TypeScript](./04-typescript-backend/understanding-classes-in-typescript.md)                            | Learn object-oriented programming in TypeScript         | Classes, Constructor, Access Modifiers                  |
+| Article | Problem | Key Concepts |
+|----------|----------|-------------|
+| [Understanding Classes in TypeScript](./04-typescript-backend/understanding-classes-in-typescript.md) | Learn object-oriented programming in TypeScript | Classes, Constructor, Access Modifiers |
 | [Designing a Dynamic Page CMS for SEO-Driven Websites](./13-real-world-case-studies/dynamic-page-cms-for-seo-driven-websites.md) | Build flexible SEO pages without hardcoding every route | CMS, Dynamic Pages, SEO, Admin Dashboard, System Design |
-| | Building a Production-Ready PDF Generation Pipeline | Generate large PDF reports reliably in production using Puppeteer, BullMQ, Redis, and dedicated workers | Puppeteer, BullMQ, Redis, Worker Architecture, Memory Management, Scalability     ||
-| Coming Soon                                                                                                                      | -                                                       | -                                                       |
-| Coming Soon                                                                                                                      | -                                                       | -                                                       |
+| [Building a Production-Ready PDF Generation Pipeline](./13-real-world-case-studies/production-ready-pdf-generation-pipeline.md) | Generate large PDF reports reliably in production using Puppeteer, BullMQ, Redis, and dedicated workers | Puppeteer, BullMQ, Redis, Worker Architecture, Memory Management, Scalability |
+| Coming Soon | - | - |
+| Coming Soon | - | - |                                                                                                                 | -                                                       | -                                                       |
 
 ---
 
@@ -44,12 +43,13 @@ It is a long-term knowledge base documenting how modern backend systems are desi
 
 ## 💼 Real-World Case Studies
 
-| Case Study                                                                                                           | Problem                                                                                                                          | Technologies                                                        |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Case Study | Problem | Technologies |
+|------------|----------|-------------|
 | [Dynamic Page CMS for SEO-Driven Websites](./13-real-world-case-studies/dynamic-page-cms-for-seo-driven-websites.md) | Creating SEO pages, landing pages, and campaign pages required developers, repeated frontend code, new routes, and redeployment. | Node.js, Express.js, MongoDB, Next.js, React, CMS Architecture, SEO |
-| Admin Dashboard for Business Operations                                                                              | Business teams need centralized panels to manage operational data, workflows, forms, and internal processes.                     | Next.js, React, MUI, REST API, Role-Based Access                    |
-| Invoice and Pre-Invoice Management System                                                                            | Manual invoice workflows can cause duplicate submissions, inconsistent statuses, and difficult accounting integration.           | Node.js, SQL Server, Sequelize, REST API, Accounting Integration    |
-| Real-Time Chat System                                                                                                | Users need instant messaging, seen status, reconnection handling, and real-time updates across clients.                          | React Native, Expo, SignalR, Zustand, TypeScript                    |
+| [Production-Ready PDF Generation Pipeline](./13-real-world-case-studies/production-ready-pdf-generation-pipeline.md) | Large PDF reports caused high memory consumption, long-running requests, Chromium bottlenecks, stalled jobs, and scalability challenges in production environments. | Node.js, TypeScript, Puppeteer, BullMQ, Redis, Worker Architecture, Background Jobs |
+| Admin Dashboard for Business Operations | Business teams need centralized panels to manage operational data, workflows, forms, and internal processes. | Next.js, React, MUI, REST API, Role-Based Access |
+| Invoice and Pre-Invoice Management System | Manual invoice workflows can cause duplicate submissions, inconsistent statuses, and difficult accounting integration. | Node.js, SQL Server, Sequelize, REST API, Accounting Integration |
+| Real-Time Chat System | Users need instant messaging, seen status, reconnection handling, and real-time updates across clients. | React Native, Expo, SignalR, Zustand, TypeScript |
 
 ---
 
