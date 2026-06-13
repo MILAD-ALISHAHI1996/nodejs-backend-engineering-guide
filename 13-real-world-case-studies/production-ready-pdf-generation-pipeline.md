@@ -1,5 +1,35 @@
 # Building a Production-Ready PDF Generation Pipeline in Node.js with Puppeteer, BullMQ, and Redis
 
+## Table of Contents
+
+| # | Section |
+|---:|---|
+| 1 | [The Real Problem](#1-the-real-problem) |
+| 2 | [Why Generating PDF Directly Inside the API Is Dangerous](#2-why-generating-pdf-directly-inside-the-api-is-dangerous) |
+| 3 | [Moving PDF Generation to a Queue-Based Architecture](#3-moving-pdf-generation-to-a-queue-based-architecture) |
+| 4 | [Creating the BullMQ Queue](#4-creating-the-bullmq-queue) |
+| 5 | [Adding a PDF Job to the Queue](#5-adding-a-pdf-job-to-the-queue) |
+| 6 | [Understanding the Risk of Retry Attempts](#6-understanding-the-risk-of-retry-attempts) |
+| 7 | [Running the PDF Worker as a Separate Process](#7-running-the-pdf-worker-as-a-separate-process) |
+| 8 | [Why the Worker Must Initialize Its Own Database Connection](#8-why-the-worker-must-initialize-its-own-database-connection) |
+| 9 | [Building the PDF Worker Class](#9-building-the-pdf-worker-class) |
+| 10 | [Why `concurrency: 1` Matters](#10-why-concurrency-1-matters) |
+| 11 | [Routing Jobs by Job Name](#11-routing-jobs-by-job-name) |
+| 12 | [The Main PDF Handler](#12-the-main-pdf-handler) |
+| 13 | [The Dangerous Case: No Filters](#13-the-dangerous-case-no-filters) |
+| 14 | [Validating Criteria Before Query Execution](#14-validating-criteria-before-query-execution) |
+| 15 | [Enforcing a Maximum Row Limit](#15-enforcing-a-maximum-row-limit) |
+| 16 | [Detecting the Number of Rows](#16-detecting-the-number-of-rows) |
+| 17 | [Why Row Count Is Not Enough](#17-why-row-count-is-not-enough) |
+| 18 | [Memory Profiling Inside the Worker](#18-memory-profiling-inside-the-worker) |
+| 19 | [Stage-by-Stage Logging](#19-stage-by-stage-logging) |
+| 20 | [Handling Worker Events](#20-handling-worker-events) |
+| 21 | [Understanding Stalled Jobs](#21-understanding-stalled-jobs) |
+| 22 | [A More Production-Safe Worker](#22-a-more-production-safe-worker) |
+| 23 | [When PDF Is the Wrong Output Format](#23-when-pdf-is-the-wrong-output-format) |
+| 24 | [Final Production Lessons](#24-final-production-lessons) |
+
+---
 ## 1. The Real Problem
 
 In many ERP, CRM, finance, warehouse, and reporting systems, users eventually need downloadable reports.
